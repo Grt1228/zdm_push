@@ -22,12 +22,14 @@ public class ZdmTask {
     @Value("${uid}")
     private String uid;
 
+    ZdmPageProcessor zdmPageProcessor = new ZdmPageProcessor();
+
     /**
      * 十分钟执行一次
      */
     @Scheduled(cron = "${corn}")
     public void execute() {
-        Spider.create(new ZdmPageProcessor())
+        Spider.create(zdmPageProcessor)
                 .addUrl("https://zhiyou.smzdm.com/member/"+uid+"/baoliao/")
                 .addPipeline(zdmPipeline)
                 .thread(1)

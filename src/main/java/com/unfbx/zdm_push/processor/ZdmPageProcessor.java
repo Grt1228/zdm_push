@@ -32,11 +32,13 @@ public class ZdmPageProcessor implements PageProcessor {
         //默认不推送
         page.putField("flag",false);
         if(StringUtils.isNotBlank(page.getHtml().xpath("/html/body/div[1]/div[1]/div[3]/div[2]/div[1]/a").$("a","href").toString())){
-            page.putField("flag",true);
             String[] split = url.split("/");
             if(data.equals(split[split.length-1])){
                 page.putField("flag",false);
+                return;
             }
+            page.putField("flag",true);
+            data = split[split.length-1];
         }
 
     }
