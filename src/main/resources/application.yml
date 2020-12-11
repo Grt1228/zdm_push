@@ -1,0 +1,17 @@
+server:
+  port: 8899
+  tomcat:
+    connection-timeout: 18000000
+spring:
+  application:
+    name: zdm
+# 配置自己的server酱key
+# 参考地址：http://sc.ftqq.com/3.version
+key: b082eb2****
+# 什么值得买爆料人id：
+# 参考：https://zhiyou.smzdm.com/member/9687682701/baoliao/
+uid: 9687682701
+# server酱有每天次数限制建议：5分钟一次，已经做了重复限制，相同商品不会重复推送
+corn: 0 0/5 * * * ? *
+#测试频率：十秒一次
+#corn: 0/30 * * * * ?
