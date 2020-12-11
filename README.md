@@ -15,3 +15,7 @@
 http://sc.ftqq.com/3.version
 
 
+### 启动
+
+ZdmPushApplication.class 
+
