@@ -27,5 +27,8 @@ http://sc.ftqq.com/3.version
 ZdmPushApplication.class
 
 #### 实现效果
+
+https://p.ananas.chaoxing.com/star3/origin/a0fb9f24fdb7594e4579fc5ff08b3e41.png
+
 ![微信推送](https://p.ananas.chaoxing.com/star3/origin/a0fb9f24fdb7594e4579fc5ff08b3e41.png)
 
