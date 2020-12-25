@@ -5,13 +5,16 @@ server:
 spring:
   application:
     name: zdm
-# ÅäÖÃ×Ô¼ºµÄserver½´key
-# ²Î¿¼µØÖ·£ºhttp://sc.ftqq.com/3.version
-key: b082eb2****
-# Ê²Ã´ÖµµÃÂò±¬ÁÏÈËid£º
-# ²Î¿¼£ºhttps://zhiyou.smzdm.com/member/9687682701/baoliao/
+key:
+  #æ”¯æŒä¸¤ç§é…ç½®ï¼špushPlusæˆ–è€…serverJï¼ŒäºŒé€‰ä¸€
+  #pushPluså‚è€ƒï¼šhttp://pushplus.hxtrip.com/ï¼Œä¸é™åˆ¶æ¬¡æ•°ï¼Œä¸ç”¨githubè´¦å·
+  #serverJå‚è€ƒï¼šhttp://sc.ftqq.com/3.version ï¼Œéœ€è¦githubè´¦å·ï¼Œé™åˆ¶æ¬¡æ•°
+  type: pushPlus
+  # å¯¹åº”å¹³å°çš„key
+  value: 9b343***
+#çˆ†æ–™äººidï¼šhttps://zhiyou.smzdm.com/member/9687682701/baoliao/ å‚è€ƒè¿™ä¸ªé“¾æ¥
 uid: 9687682701
-# server½´ÓĞÃ¿Ìì´ÎÊıÏŞÖÆ½¨Òé£º60ÃëÖÓÒ»´Î£¬ÒÑ¾­×öÁËÖØ¸´ÏŞÖÆ£¬ÏàÍ¬ÉÌÆ·²»»áÖØ¸´ÍÆËÍ
-corn: 0/59 * * * * ?
-#²âÊÔÆµÂÊ£ºÊ®ÃëÒ»´Î
+# é¢‘ç‡åç§’ä¸€æ¬¡  ï¼Œ
+corn: 0/10 * * * * ?
+# ä¸‰åç§’ä¸€æ¬¡
 #corn: 0/30 * * * * ?
