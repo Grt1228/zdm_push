@@ -1,7 +1,7 @@
 package com.unfbx.zdm_push.api;
 
 import com.github.lianjiatech.retrofit.spring.boot.annotation.RetrofitClient;
-import com.unfbx.zdm_push.constant.ServerPushResponse;
+import com.unfbx.zdm_push.constant.ServerJPushResponse;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
@@ -12,7 +12,7 @@ import retrofit2.http.Query;
  * @Date 2020-12-11
  */
 @RetrofitClient(baseUrl = "https://sc.ftqq.com/")
-public interface ServerPushApi {
+public interface ServerJPushApi {
     @GET("{key}.send")
-    ServerPushResponse sendToServerJiang(@Path("key") String key, @Query("text")String text, @Query("desp")String desp);
+    ServerJPushResponse sendToServerJiang(@Path("key") String key, @Query("text")String text, @Query("desp")String desp);
 }

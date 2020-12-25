@@ -8,7 +8,7 @@ import lombok.Data;
  * @Date 2020-12-11
  */
 @Data
-public class ServerPushResponse {
+public class ServerJPushResponse {
 
     //{"errno":0,"errmsg":"success","dataset":"done"}
 
