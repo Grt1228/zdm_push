@@ -6,6 +6,9 @@ import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.processor.PageProcessor;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @Description
  * @Author Grt
@@ -18,7 +21,7 @@ public class ZdmPageProcessor implements PageProcessor {
     /**
      * 防止重复发送,比较上次发送数据
      */
-    private String data = "";
+    private Map<String,Integer> data = new HashMap<>();
     @Override
     public void process(Page page) {
         String url = page.getHtml().xpath("/html/body/div[1]/div[1]/div[3]/div[2]/div[1]/a").$("a","href").toString();
@@ -33,12 +36,14 @@ public class ZdmPageProcessor implements PageProcessor {
         page.putField("flag",false);
         if(StringUtils.isNotBlank(page.getHtml().xpath("/html/body/div[1]/div[1]/div[3]/div[2]/div[1]/a").$("a","href").toString())){
             String[] split = url.split("/");
-            if(data.equals(split[split.length-1])){
+            //存在不推送
+            if(data.get(split[split.length-1]) != null){
                 page.putField("flag",false);
                 return;
             }
             page.putField("flag",true);
-            data = split[split.length-1];
+            //不存在存进去
+            data.put(split[split.length-1],1);
         }
 
     }

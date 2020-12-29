@@ -6,22 +6,42 @@
 #### 配置参数
 参考：application.yml文件配置即可
 ```
-# 配置自己的server酱key
-# 参考地址：http://sc.ftqq.com/3.version
-key: b082eb2****
-# 什么值得买爆料人id：
-# 参考：https://zhiyou.smzdm.com/member/9687682701/baoliao/
-uid: 9687682701
-# server酱有每天次数（重要重要重要）限制建议：60秒钟一次，已经做了重复限制，相同商品不会重复推送
-corn: 0/59 * * * * ?
-#测试频率：十秒一次
+key:
+  #支持两种配置：【pushPlus】或者【serverJ】，二选一
+  #pushPlus参考：http://pushplus.hxtrip.com/，不限制次数，不用github账号
+  #serverJ参考：http://sc.ftqq.com/3.version ，需要github账号，限制次数
+  type: pushPlus
+  # 对应平台的key
+  value: SCU68113********
+#爆料人id：https://zhiyou.smzdm.com/member/9687682701/baoliao/ 参考这个链接
+blr:
+#支持多个爆料人id，用英文都好隔开即可
+  uids: 9687682701,2031093162,3050600933
+# 频率十秒一次  ，
+#corn: 0/10 * * * * ?
+# 三十秒一次
 #corn: 0/30 * * * * ?
+# 一分钟一次
+corn: 0/59 * * * * ?
 ```
 
-#### server酱参数
-文档之间看官网即可
+#### serverJ酱参数
+文档之间看官网即可（需要github账号，限制次数）
 
-http://sc.ftqq.com/3.version
+文档：http://sc.ftqq.com/3.version
+
+https://s3.ax1x.com/2020/12/29/rHchjg.png
+
+![serverJ酱参数](https://s3.ax1x.com/2020/12/29/rHchjg.png)
+
+#### pushPlus参数
+
+文档之间看官网即可（不限制次数，不用github账号），比较推荐这个更简单点。
+
+文档：http://pushplus.hxtrip.com/
+
+https://s3.ax1x.com/2020/12/29/rHguVA.png
+![serverJ酱参数](https://s3.ax1x.com/2020/12/29/rHguVA.png)
 
 #### 启动
 ZdmPushApplication.class
