@@ -33,7 +33,7 @@ public class ServerPush {
     /**
      * 私人密钥
      */
-    @Value("${key.type}")
+    @Value("${key.value}")
     private String keyValue;
 
 
