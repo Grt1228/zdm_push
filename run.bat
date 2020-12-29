@@ -1,0 +1,1 @@
+java -jar zdm_push-0.0.1-SNAPSHOT.jar  --spring.config.location=application.yml 
