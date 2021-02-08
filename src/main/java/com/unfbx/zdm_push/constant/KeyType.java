@@ -9,6 +9,7 @@ public enum KeyType {
 
     SERVER_J(0,"serverJ"),
     PUSH_PLUS(1,"pushPlus"),
+    SRE24PUSH(2,"sre24push"),
     ;
 
     private int code;

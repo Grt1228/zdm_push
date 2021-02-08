@@ -40,6 +40,11 @@ public class ZdmPipeline implements Pipeline {
                 log.info("~~~~~~~~~~~~~~~~为配置微信推送类型，到application.yml配置~~~~~~~~~~~~~~~~");
             }
             ServerResponse serverResponse = null;
+
+            if (keyType.SRE24PUSH.getValue().equals(keyType)) {
+                serverResponse = serverPush.pushMsg(zdmInfo);
+            }
+
             if(KeyType.SERVER_J.getValue().equals(keyType)){
                 serverResponse = serverPush.pushJMsgToWechat(zdmInfo);
             }
