@@ -1,7 +1,9 @@
 package com.unfbx.zdm_push.service;
 
+import com.unfbx.zdm_push.api.ServerSre24PushApi;
 import com.unfbx.zdm_push.api.ServerJPushApi;
 import com.unfbx.zdm_push.api.ServerPushPlusApi;
+import com.unfbx.zdm_push.constant.ServerSre24PushResponse;
 import com.unfbx.zdm_push.constant.ServerJPushResponse;
 import com.unfbx.zdm_push.constant.ServerPushPlusResponse;
 import com.unfbx.zdm_push.constant.ServerResponse;
@@ -25,7 +27,8 @@ import java.util.Map;
 @Log
 public class ServerPush {
 
-
+    @Autowired
+    private ServerSre24PushApi serverSre24PushApi;
     @Autowired
     private ServerJPushApi serverJPushApi;
     @Autowired
@@ -36,6 +39,21 @@ public class ServerPush {
     @Value("${key.value}")
     private String keyValue;
 
+    public ServerResponse pushMsg(ZdmInfo zdmInfo) {
+        if (StringUtils.isBlank(keyValue)) {
+            return ServerResponse.createByError("sre24push 配置有误，请参考文档修改 application.yml");
+        }
+        String token = keyValue;
+        String msg = "[zdm_push] " + zdmInfo.getName() + " " + zdmInfo.getUrl();
+        ServerSre24PushResponse rs = serverSre24PushApi.notifyUser(token, msg);
+
+        if (rs != null && rs.isSuccess()) {
+            return ServerResponse.createBySuccess("推送成功");
+        }
+
+        log.info("推送失败："+rs.getErrmsg());
+        return ServerResponse.createByError("推送失败");
+    }
 
     public ServerResponse pushJMsgToWechat(ZdmInfo zdmInfo){
         if(StringUtils.isBlank(keyValue)){

@@ -7,12 +7,13 @@
 参考：src/main/resources/application.yml文件配置即可
 ```
 key:
-  #支持两种配置：【pushPlus】或者【serverJ】，二选一
+  #支持以下其中一种配置：sre24push, pushPlus, serverJ
+  #sre24push参考：https://sre24.com ，微信扫码登录免费使用
   #pushPlus参考：http://pushplus.hxtrip.com/，不限制次数，不用github账号
   #serverJ参考：http://sc.ftqq.com/3.version ，需要github账号，限制次数
-  type: pushPlus
+  type: sre24push
   # 对应平台的key
-  value: SCU68113********
+  value: secret...
 #爆料人id：https://zhiyou.smzdm.com/member/9687682701/baoliao/ 参考这个链接
 blr:
 #支持多个爆料人id，用英文都好隔开即可
@@ -24,6 +25,15 @@ blr:
 # 一分钟一次
 corn: 0/59 * * * * ?
 ```
+
+#### sre24push参数
+
+SRE24 一键免费推送信息到手机，支持一对多用户、一对多设备、微信短信邮件等多种信道。
+
+文档: https://sre24.com
+
+微信扫码免费注册后，PC浏览器打开官网-设置页面，得到推送令牌(TOKEN) ，填写到配置文件即可。
+
 
 #### serverJ酱参数
 文档之间看官网即可（需要github账号，限制次数）
