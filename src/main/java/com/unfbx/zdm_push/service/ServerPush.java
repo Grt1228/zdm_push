@@ -44,7 +44,7 @@ public class ServerPush {
             return ServerResponse.createByError("sre24push 配置有误，请参考文档修改 application.yml");
         }
         String token = keyValue;
-        String msg = zdmInfo.getName() + " " + zdmInfo.getUrl();
+        String msg = "[zdm_push] " + zdmInfo.getName() + " " + zdmInfo.getUrl();
         ServerSre24PushResponse rs = serverSre24PushApi.notifyUser(token, msg);
 
         if (rs != null && rs.isSuccess()) {
